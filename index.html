@@ -12,15 +12,13 @@
             <div id="points">
                 <img id='image' height=400 width=400>
                 <p><b>Category: </b><span id="category"></span><br><b>Area: </b><span id="area"></span><br><b>Tags: </b><span id="tags"></span></p>
-                <h3 style="font-size:20px important!">Ingredients:</h3>
-                <ul id="ingredients">
-
-                </ul>
             </div>
             <div id="description">
                 <p id="food"></p>
                 <p id="content"></p>
             </div>
+            <table id="ingredients">
+            </table>
         </div>
         <div id="video">
             <h3>Video Recipe</h3>
@@ -67,10 +65,10 @@
                 document.getElementById('category').innerHTML=points[r][0];
                 document.getElementById('area').innerHTML=points[r][1];
                 document.getElementById('tags').innerHTML=points[r][2];
-                document.getElementById('ingredients').innerHTML='<li>'+ingredients[r][0]+'</li>';
+                document.getElementById('ingredients').innerHTML='<tr><th>Ingredient</th><th>Amount</th></tr><tr><td>'+ingredients[r][0].split("-")[0]+'</td>'+'<td>'+ingredients[r][0].split("-")[1]+'</td></tr>';
                 for(var i=1;i<ingredients[r].length;i++)
                 {
-                    document.getElementById('ingredients').innerHTML=document.getElementById('ingredients').innerHTML+'<li>'+ingredients[r][i]+'</li>';
+                    document.getElementById('ingredients').innerHTML=document.getElementById('ingredients').innerHTML+'<tr><td>'+ingredients[r][i].split("-")[0]+'</td>'+'<td>'+ingredients[r][i].split("-")[1]+'</td></tr>';
                 }
                 document.getElementById('food').innerHTML='<b>'+names[r]+'<b>';
                 document.getElementById('content').innerHTML=content[r];
